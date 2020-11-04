@@ -1,8 +1,7 @@
 # Organización de Computadoras 66.20 
+GRUPO NUMERO 11
 
-# GRUPO NUMERO 11
-
-Integrantes:
-    Federico Burman       104112
-    Manuel Longo Elia     102425
-    Azul Zaietz           102214
+Integrantes: \n
+    Federico Burman       104112 \n
+    Manuel Longo Elia     102425 \n
+    Azul Zaietz           102214 \n
