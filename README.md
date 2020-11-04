@@ -1,10 +1,10 @@
-# Organización de Computadoras 66.20 
-GRUPO NUMERO 11
+# ORGANIZACION DE COMPUTADORAS [66.20]: 
 
-Integrantes: 
+Trabajos Prácticos de la materia Organizacion de Computadoras de FIUBA
 
-    Federico Burman       104112 
-    
-    Manuel Longo Elia     102425 
-    
-    Azul Zaietz           102214 
+## Grupo 1
+
+* **Integrante 1** - [Federico Burman](https://github.com/federicoburman)
+* **Integrante 2** - [Azul Zaietz](https://github.com/azulzaietz)
+* **Integrante 3** - [Manuel Longo Elia](https://github.com/manulon)
+*
