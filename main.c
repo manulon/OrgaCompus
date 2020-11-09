@@ -133,11 +133,11 @@ int version() {
 
 
 int main(int argc, char* const argv[]) {
-    char* i_filename = STD_FILE; FILE* i_file = stdin;
-    char* o_filename = STD_FILE; FILE* o_file = stdout;
+    const char* i_filename = STD_FILE; 
+    const char* o_filename = STD_FILE; 
 
     int mode = modo_ejecucion(argc, argv);
-
+    printf("el modo es %i ",mode);
     switch (mode) {
         case MODO_VERSION:
             return version();
@@ -168,27 +168,20 @@ int main(int argc, char* const argv[]) {
             return ERROR;
         }
     }
+    
 
-    /*bool input_is_std = (strcmp(i_filename, STD_FILE) == 0);
+    bool input_is_std = (strcmp(i_filename, STD_FILE) == 0);
     bool output_is_std = (strcmp(o_filename, STD_FILE) == 0);
+   
+    if (input_is_std) {
+       	   if(!output_is_std) fopen(o_filename, "w+"); 
+           fprintf(stderr, "could not open input file\n");
+           return ERROR;
+        
+    } 
+   
+   
 
-    if (!input_is_std) {
-        i_file = fopen(i_filename, "r+");
-        if (!i_file) {
-            fprintf(stderr, "could not open input file\n");
-            return ERROR;
-        }
-    }
-    if (!output_is_std) {
-        o_file = fopen(o_filename, "w+");
-        if (!o_file) {
-            perror("could not open output file\n");
-            if (!input_is_std) fclose(i_file);
-            return ERROR;
-        }
-    }*/
-
-    //sort(i_file, o_file);
     file_reader_t file_reader;
     file_init(&file_reader,i_filename);
     read_hash_file(&file_reader, o_filename);

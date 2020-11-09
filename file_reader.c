@@ -2,11 +2,11 @@
 #include "hash_read_file.h"
 #include <stdbool.h>
 
-int file_reader_init(file_reader_t* self, const char* input_file_name) {
-    if (file_name == NULL) {
+int file_init(file_reader_t* self, const char* input_file_name) {
+    if (input_file_name == NULL) {
         self->fp = stdin;
     } else {
-        self->fp = fopen(file_name, "rb");
+        self->fp = fopen(input_file_name, "rb");
     }
     return 0;
 }

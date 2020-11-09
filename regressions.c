@@ -42,7 +42,6 @@ get_hash(char *msg)
 	string_hash sh;
 	int32_t h0;
 	int32_t h;
-	printf("el len vale %u", len);
 	if (len > 1) {
 		h0 = get_hash_(&sh, msg, len, len);
 
