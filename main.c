@@ -134,10 +134,9 @@ int version() {
 
 int main(int argc, char* const argv[]) {
     const char* i_filename = STD_FILE; 
-    const char* o_filename = STD_FILE; 
+    const char* o_filename = "salida_default.txt"; 
 
     int mode = modo_ejecucion(argc, argv);
-    printf("el modo es %i ",mode);
     switch (mode) {
         case MODO_VERSION:
             return version();
@@ -175,7 +174,7 @@ int main(int argc, char* const argv[]) {
    
     if (input_is_std) {
        	   if(!output_is_std) fopen(o_filename, "w+"); 
-           fprintf(stderr, "could not open input file\n");
+           printf( "No se ingreso un archivo de entrada, para mas ayuda, usar comando -h\n");
            return ERROR;
         
     } 
