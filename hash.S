@@ -16,20 +16,22 @@
 	.globl	string_hash_more
 	.ent	string_hash_more
 string_hash_more:
-	subu	sp, sp, 40	## 4 (SRA) + 2 (LTA) + 4 (ABA)
+	.frame fp, 16, ra
+
+	subu	sp, sp, 16	## 4 (SRA) + 2 (LTA) + 4 (ABA)
 	.cprestore 24		## sw gp, 24(sp)
-	sw	fp, 28(sp)
-	sw	ra, 32(sp)
+	sw	fp, 4(sp)
+	sw	ra, 8(sp)
 	move	fp, sp		## fp = sp
 	
 	##salvo 1er arg (siempre)
-	sw  a0, 40(fp)	## n: a0, sp+40 ##hash
-	sw  a1, 44(fp)  ##str*
-	sw  a2, 48(fp)  ##len
+	sw  a0, 16(fp)	## n: a0, sp+40 ##hash
+	sw  a1, 20(fp)  ##str*
+	sw  a2, 24(fp)  ##len
 
 	## assert(sh->flag == STRING_HASH_INIT || sh->flag == STRING_HASH_MORE);
 	
-	lw t8, 40(fp) 			## cargamos la direccion del struct
+	lw t8, 16(fp) 			## cargamos la direccion del struct
 	lb t2, 0(t8) 			## accedo al valor que esta dentro de la direccion que tiene t8 (el flag)
 	beq t2, STRING_HASH_INIT, _assert_true
 	beq t2, STRING_HASH_MORE, _assert_true
@@ -88,9 +90,9 @@ _error:
 _return:
 	## return;
 	lw	gp, 24(sp)
-	lw	fp, 28(sp)
-	lw	ra, 32(sp)
-	addu	sp, sp, 40
+	lw	fp, 4(sp)
+	lw	ra, 8(sp)
+	addu	sp, sp, 16
 	jr	ra
 
 	.end string_hash_more
